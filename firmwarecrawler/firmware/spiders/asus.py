@@ -2,11 +2,8 @@ import re
 from datetime import datetime
 from random import uniform
 from time import sleep
-<<<<<<< HEAD
-import time
-=======
 from time import timezone
->>>>>>> 5292cba6afd97c7cc87a2f087d04569185e10817
+
 from scrapy import Request, Spider
 # from scrapy.loader import ItemLoader
 #
@@ -15,7 +12,7 @@ from ..items import FirmwareImage
 from ..loader import FirmwareLoader
 
 
-'''class AsusSpider(Spider):
+class AsusSpider(Spider):
     name = 'asus'
     manufacturer = 'ASUS'
     device_dictionary = dict(
@@ -131,7 +128,7 @@ from ..loader import FirmwareLoader
             return 'Motherboard'
         if 'Commercial' in response_url:
             return 'BIOS'
-        return None  # undefined'''
+        return None  # undefined
 
 
 

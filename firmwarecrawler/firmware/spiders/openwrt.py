@@ -20,7 +20,7 @@ class OpenWRTSpider(Spider):
             if text is None and href == "/":
                 # <a href="/"><em>(root)</em></a>
                 continue
-            if "19.07.7" in href or "18.06.9" in href:
+            if "23.05.2" in href or "22.03.6" in href:
                 version = href.split("/")[1]
                 self.logger.debug(href)
                 self.logger.debug(version)

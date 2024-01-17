@@ -11,7 +11,8 @@ import urllib.request, urllib.parse, urllib.error
 class UbiquitiSpider(Spider):
     name = "ubiquiti"
     allowed_domains = ["ubnt.com", "ui.com"]
-    start_urls = ["http://www.ubnt.com/download/"]
+    # start_urls = ["http://www.ubnt.com/download/"]
+    start_urls = [f"https://download.svc.ui.com/v1/downloads?page={i}" for i in range(1,26)]
     header = {"Accept": "application/json, text/javascript, */*; q=0.01",
                 "Accept-Encoding": "gzip, deflate, br",
                 "Accept-Language": "en-US,en;q=0.5",
@@ -21,35 +22,27 @@ class UbiquitiSpider(Spider):
                 "Host": "www.ui.com",
                 "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
                 "TE": "Trailers",
+                "x-amz-cf-id": "zmyqngir36zKfndolQkvlfQpTBENCZRCen-sHHMsxoA4eZ56MSO8Cw==",
+                "x-amz-cf-pop": "NRT57-C1",
+                "x-request-id": "2a11ba5e-d053-49ed-9de0-6ff3496cdbcd",
+                "set-cookie": "AWSALB=+w5eIAOKHCUBA4OshpZFde9tKx+jyTjjJ46vXgyWu5UHuDWMGn1xXoUiO6dVUf4BFkpvK/dI8HKpvS0/HSyOT8RJZIbz38OKH+29RwHUJKnnayY9prqabPeWqRuu; Expires=Fri, 19 Jan 2024 12:37:32 GMT; Path=/",
                 "X-Requested-With": "XMLHttpRequest"}
 
     def parse(self, response):
-        self.logger.debug("Hello")
-         
-        yield Request(
-                url="https://www.ui.com/download/?platform=airmax-ac",
-                headers=self.header,
-                callback=self.parse_json)
-
-
-
-    def parse_json(self, response):
-        json_response = json.loads(response.body_as_unicode())
+        # self.logger.debug(response.body)
+        if hasattr(response, 'body_as_unicode'):
+            json_response = json.loads(response.body_as_unicode())
+        else:
+            json_response = json.loads(response.body)
         s1 = json.dumps(json_response)
         data = json.loads(s1)
         for it in data["downloads"]:
-            if it["category__slug"] == "firmware":
+            if "firmware" in it["slug"]:
                 date = it["date_published"]
-                product = it["slug"].split("-firmware")[0]
+                product = it["name"]
                 version = it["version"]
-                path = it["file_path"]
-                item = FirmwareLoader(item=FirmwareImage(),
-                                    response=response)
-                url = urllib.parse.urljoin("https://www.ui.com", path)
-                self.logger.debug(date)
-                self.logger.debug(product)
-                self.logger.debug(version)
-                self.logger.debug(url)
+                url = it["file_path"]
+                item = FirmwareLoader(item=FirmwareImage(), response=response)
                 item.add_value("url", url)
                 item.add_value("product", product)
                 item.add_value("date", date)

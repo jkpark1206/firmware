@@ -5,55 +5,49 @@ from scrapy.http import Request
 
 from ..items import FirmwareImage
 from ..loader import FirmwareLoader
-
+import string
 import json
 import urllib.request, urllib.parse, urllib.error
+
 
 class TendaZHSpider(Spider):
     name = "tenda_zh"
     vendor = "tenda"
     allowed_domains = ["www.tenda.com.cn"]
-    start_urls = ["http://www.tenda.com.cn/service/download-cata-11.html"]
+    start_urls = ["https://www.tenda.com.cn/download/detail-3811.html"]
     base_url = "http://www.tenda.com.cn/{}"
 
     def parse(self, response):
-        for firmware in response.xpath("//tr[@class='downtr     ']"):
-            link = firmware.xpath("./td[@class='dr_name']/a/@href").extract()[0]
-            link_url = link.replace("//", "https://")
-            date = firmware.xpath("./td[@class='dr_date hidden-xs']/text()").extract()[1]
-            self.logger.debug(link_url)
-            self.logger.debug(date)
-            if "down.tenda" in link_url:
-                continue
-                #name = firmware.xpath("./td[@class='dr_name']/a/text()").extract()[0]
-                #product = name.split("升级软件")[0]
-                #version = name.split("升级软件")[-1]
-                #self.logger.debug("Mark")
-                #self.logger.debug(product)
-                #self.logger.debug(version)
-            else:
-                yield Request(
-                    url=link_url,
-                    meta={"date": date},
-                    callback=self.parse_product)
-
+        start_urls = [f"https://www.tenda.com.cn/download/detail-{i}.html" for i in range(1777, 3811)]
+        for url in start_urls:
+            yield Request(
+                url=url,
+                callback=self.parse_product)
 
     def parse_product(self, response):
-        download = response.xpath("//td[@class='col-right']/a[@class='btnxz btndown downhits']/@href").extract()[0]
-        download_url = download.replace("//", "https://").replace(" ", "%20")
-        dsp = response.xpath("//td[@class='col-right']/p/text()").extract()
-        product = dsp[0]
-        version = dsp[1]
-        #self.logger.debug(download_url)
-        #self.logger.debug(dsp)
-        #self.logger.debug(version)
-        #self.logger.debug(response.meta["date"])
-
-        item = FirmwareLoader(
-            item=FirmwareImage(), response=response)
-        item.add_value("version", version)
-        item.add_value("url", download_url)
-        item.add_value("product", product)
-        item.add_value("vendor", self.vendor)
-        item.add_value("date", response.meta["date"])
-        yield item.load_item()
+        # table = response.xpath("//table[@class='table']")
+        # a = response.xpath('//strong[contains(text(),"文件名称：")][1]').extract()
+        a = response.xpath('//div[@class="btnDown onebtn"]/a/@href').extract()
+        b = response.xpath('//table[@class="table"]/tr/td/text()').extract()
+        c = response.xpath('//table[@class="table"]/tr/td/a/text()').extract()
+        # self.logger.debug(f"===============a:{a}, b:{b}, c:{c}")
+        if a and b and c:
+            b_clean = []
+            for item in b:
+                if item != "\r\n" or item != '\t':
+                    b_clean.append(item)
+            dsp = b_clean[0]
+            version = b_clean[1].strip()
+            date = b_clean[2]
+            product = c[0]
+            download_url = urllib.parse.quote(f"https:{a[0]}", safe=string.printable).replace(" ", "%20")
+            if "升级文件" in dsp or "升级软件" in dsp or "驱动" in dsp:
+                self.logger.debug(f"===============dsp:{dsp}, version:{version}, date:{date}, product:{product}, download_url:{download_url}")
+                item = FirmwareLoader(
+                    item=FirmwareImage(), response=response)
+                item.add_value("version", version)
+                item.add_value("url", download_url)
+                item.add_value("product", product)
+                item.add_value("vendor", self.vendor)
+                item.add_value("date", date)
+                yield item.load_item()

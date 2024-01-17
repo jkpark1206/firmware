@@ -26,9 +26,12 @@ class QNAPSpider(Spider):
     qdl_data = {}
 
     def parse(self, response):
-        self.qmodel_data = json.loads(response.xpath('//p/text()').extract_first())["modelList"]
+        logging.info(f"{type(response.text)}  {type(response.body)}")
+        # self.qmodel_data = json.loads(response.xpath('//p/text()').extract_first())["modelList"]
+        self.qmodel_data = json.loads(response.text)["productLineList"]
         for qmodel in self.qmodel_data:
-            modelID = qmodel['modelID']
+            # modelID = qmodel['modelID']
+            modelID = qmodel['id']
             #category_id = qmodel['product_line_id']
             file_uri = "https://qnap.com/api/v1/download/files?model_id={}&locale_set={}".format(modelID, self.jq_locale)
             yield Request(
@@ -51,10 +54,10 @@ class QNAPSpider(Spider):
             href = fw_info['links']['global']  # options: {'global', 'europe', 'usa'}
             if not href.startswith("https://") and not href.startswith("http://"):
                 href = urllib.parse.urljoin("https://", href)
-            self.logger.debug(href)
-            self.logger.debug(meta['name'])
-            self.logger.debug(fw_info['published_at'])
-            self.logger.debug(fw_info['version'])
+            # self.logger.debug(href)
+            # self.logger.debug(meta['name'])
+            # self.logger.debug(fw_info['published_at'])
+            # self.logger.debug(fw_info['version'])
 
             item = FirmwareLoader(
                     item=FirmwareImage(), response=response, date_fmt="%Y-%m-%d")
@@ -64,4 +67,4 @@ class QNAPSpider(Spider):
             item.add_value('date', fw_info['published_at'])
             item.add_value('version', fw_info['version'])
             item.add_value('url', href)
-            #yield item.load_item()
+            yield item.load_item()

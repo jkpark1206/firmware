@@ -34,6 +34,9 @@ class FirmwarePipeline(FilesPipeline):
     # overrides function from FilesPipeline
     def file_path(self, request, response=None, info=None):
         filename = os.path.basename(urllib.parse.urlsplit(request.url).path)
+        if not filename:
+            if 'filename=' in request.url:
+                filename = request.url.split('filename=')[1]
         return "%s/%s" % (request.meta["vendor"], filename)
 
     # overrides function from FilesPipeline
@@ -76,7 +79,6 @@ class FirmwarePipeline(FilesPipeline):
         item[self.files_result_field] = []
         if isinstance(item, dict) or self.files_result_field in item.fields:
             item[self.files_result_field] = [x for ok, x in results if ok]
-
 
         status = {}
         for ok, x in results:

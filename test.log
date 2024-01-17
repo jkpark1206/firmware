@@ -1,0 +1,990 @@
+2024-01-08 20:03:16 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: firmwarecrawler)
+2024-01-08 20:03:16 [scrapy.utils.log] INFO: Versions: lxml 5.0.0.0, libxml2 2.12.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.8.10 (default, Nov 22 2023, 10:22:35) - [GCC 9.4.0], pyOpenSSL 23.3.0 (OpenSSL 3.1.4 24 Oct 2023), cryptography 41.0.7, Platform Linux-5.15.0-91-generic-x86_64-with-glibc2.29
+2024-01-08 20:03:16 [scrapy.addons] INFO: Enabled addons:
+[]
+2024-01-08 20:03:16 [py.warnings] WARNING: /home/jackiepark/.local/lib/python3.8/site-packages/scrapy/utils/request.py:254: ScrapyDeprecationWarning: '2.6' is a deprecated value for the 'REQUEST_FINGERPRINTER_IMPLEMENTATION' setting.
+
+It is also the default value. In other words, it is normal to get this warning if you have not defined a value for the 'REQUEST_FINGERPRINTER_IMPLEMENTATION' setting. This is so for backward compatibility reasons, but it will change in a future version of Scrapy.
+
+See the documentation of the 'REQUEST_FINGERPRINTER_IMPLEMENTATION' setting for information on how to handle this deprecation.
+  return cls(crawler)
+
+2024-01-08 20:03:16 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.epollreactor.EPollReactor
+2024-01-08 20:03:16 [scrapy.extensions.telnet] INFO: Telnet Password: 2625cdda85e44d6f
+2024-01-08 20:03:16 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-01-08 20:03:16 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 500,
+ 'AUTOTHROTTLE_START_DELAY': 0,
+ 'BOT_NAME': 'firmwarecrawler',
+ 'CONCURRENT_REQUESTS': 3,
+ 'DOWNLOAD_MAXSIZE': 0,
+ 'DOWNLOAD_TIMEOUT': 1200,
+ 'DOWNLOAD_WARNSIZE': 0,
+ 'LOG_FILE': './test.log',
+ 'NEWSPIDER_MODULE': 'scraper.spiders',
+ 'SPIDER_MODULES': ['firmwarecrawler.firmware.spiders'],
+ 'USER_AGENT': 'FirmwareBot/1.0 (+https://github.com/firmadyne/scraper)'}
+2024-01-08 20:03:16 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-01-08 20:03:16 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-01-09 04:03:16 [py.warnings] WARNING: /home/jackiepark/.local/lib/python3.8/site-packages/scrapy/pipelines/media.py:148: ScrapyDeprecationWarning: file_path(self, request, response=None, info=None) is deprecated, please use file_path(self, request, response=None, info=None, *, item=None)
+  self._check_signature(func)
+
+2024-01-09 04:03:16 [scrapy.middleware] INFO: Enabled item pipelines:
+['firmwarecrawler.firmware.pipelines.FirmwarePipeline']
+2024-01-09 04:03:16 [scrapy.core.engine] INFO: Spider opened
+2024-01-09 04:03:16 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-01-09 04:03:16 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-01-09 04:03:17 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://support.dlink.com/AllPro.aspx> from <GET http://support.dlink.com/AllPro.aspx>
+2024-01-09 04:03:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/AllPro.aspx> (referer: None)
+2024-01-09 04:03:21 [scrapy.dupefilters] DEBUG: Filtered duplicate request: <GET https://support.dlink.com/ProductInfo.aspx?m=DCS-4602EV> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2024-01-09 04:03:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ProductInfo.aspx?m=DAP-1665> (referer: https://support.dlink.com/AllPro.aspx)
+2024-01-09 04:03:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ProductInfo.aspx?m=DCS-6314> (referer: https://support.dlink.com/AllPro.aspx)
+2024-01-09 04:03:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ProductInfo.aspx?m=DCS-6212L> (referer: https://support.dlink.com/AllPro.aspx)
+2024-01-09 04:03:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ajax/ajax.ashx?action=productfile&ver=1796> (referer: https://support.dlink.com/ProductInfo.aspx?m=DAP-1665)
+2024-01-09 04:03:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ProductInfo.aspx?m=KVM-410> (referer: https://support.dlink.com/AllPro.aspx)
+2024-01-09 04:03:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ajax/ajax.ashx?action=productfile&ver=1186> (referer: https://support.dlink.com/ProductInfo.aspx?m=DCS-6314)
+2024-01-09 04:03:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ajax/ajax.ashx?action=productfile&ver=1753> (referer: https://support.dlink.com/ProductInfo.aspx?m=DCS-6212L)
+2024-01-09 04:03:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip> (referer: None)
+2024-01-09 04:03:42 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip> referred in <None>
+2024-01-09 04:03:43 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip', 'path': 'dlink/DAP-1665_REVB_FIRMWARE_v2.06B01.zip', 'checksum': 'c3276a0f0024708e7edfef249ffc71c6', 'status': 'downloaded'})], item: {'build': 'B',
+ 'date': '03/06/19',
+ 'description': 'Firmware (2.06B01)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip'],
+ 'files': [{'checksum': 'c3276a0f0024708e7edfef249ffc71c6',
+            'path': 'dlink/DAP-1665_REVB_FIRMWARE_v2.06B01.zip',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip',
+ 'vendor': 'dlink',
+ 'version': '2.06B01'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:03:43 [scrapy.core.scraper] ERROR: Error processing {'build': 'B',
+ 'date': '03/06/19',
+ 'description': 'Firmware (2.06B01)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip'],
+ 'files': [{'checksum': 'c3276a0f0024708e7edfef249ffc71c6',
+            'path': 'dlink/DAP-1665_REVB_FIRMWARE_v2.06B01.zip',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.06B01.zip',
+ 'vendor': 'dlink',
+ 'version': '2.06B01'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:03:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip> (referer: None)
+2024-01-09 04:03:45 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip> referred in <None>
+2024-01-09 04:03:45 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip', 'path': 'dlink/DAP-1665_REVB_FIRMWARE_2.00B19.zip', 'checksum': 'ec5a33a3fa05c44cb60503dee475fc59', 'status': 'downloaded'})], item: {'build': 'B',
+ 'date': '03/31/17',
+ 'description': 'Firmware (2.00B19)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip'],
+ 'files': [{'checksum': 'ec5a33a3fa05c44cb60503dee475fc59',
+            'path': 'dlink/DAP-1665_REVB_FIRMWARE_2.00B19.zip',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip',
+ 'vendor': 'dlink',
+ 'version': '2.00B19'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:03:45 [scrapy.core.scraper] ERROR: Error processing {'build': 'B',
+ 'date': '03/31/17',
+ 'description': 'Firmware (2.00B19)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip'],
+ 'files': [{'checksum': 'ec5a33a3fa05c44cb60503dee475fc59',
+            'path': 'dlink/DAP-1665_REVB_FIRMWARE_2.00B19.zip',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_2.00B19.zip',
+ 'vendor': 'dlink',
+ 'version': '2.00B19'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:03:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip> (referer: None)
+2024-01-09 04:03:48 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip> referred in <None>
+2024-01-09 04:03:48 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip', 'path': 'dlink/DAP-1665_REVB_FIRMWARE_v2.03B03.zip', 'checksum': 'f992d100cdd880c529f18010614bcdce', 'status': 'downloaded'})], item: {'build': 'B',
+ 'date': '05/30/18',
+ 'description': 'Firmware (2.03B03)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip'],
+ 'files': [{'checksum': 'f992d100cdd880c529f18010614bcdce',
+            'path': 'dlink/DAP-1665_REVB_FIRMWARE_v2.03B03.zip',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip',
+ 'vendor': 'dlink',
+ 'version': '2.03B03'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:03:48 [scrapy.core.scraper] ERROR: Error processing {'build': 'B',
+ 'date': '05/30/18',
+ 'description': 'Firmware (2.03B03)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip'],
+ 'files': [{'checksum': 'f992d100cdd880c529f18010614bcdce',
+            'path': 'dlink/DAP-1665_REVB_FIRMWARE_v2.03B03.zip',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVB/DAP-1665_REVB_FIRMWARE_v2.03B03.zip',
+ 'vendor': 'dlink',
+ 'version': '2.03B03'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:03:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP> (referer: None)
+2024-01-09 04:03:50 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP> referred in <None>
+2024-01-09 04:03:50 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP', 'path': 'dlink/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP', 'checksum': '51cdaaa47923a176b090c6595a868347', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '10/19/15',
+ 'description': 'Firmware (1.02.07)',
+ 'device_class': 'Full HD Outdoor Dome IP Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP'],
+ 'files': [{'checksum': '51cdaaa47923a176b090c6595a868347',
+            'path': 'dlink/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP'}],
+ 'product': 'DCS-6314',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.02.07'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:03:50 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '10/19/15',
+ 'description': 'Firmware (1.02.07)',
+ 'device_class': 'Full HD Outdoor Dome IP Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP'],
+ 'files': [{'checksum': '51cdaaa47923a176b090c6595a868347',
+            'path': 'dlink/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP'}],
+ 'product': 'DCS-6314',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.02.07.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.02.07'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP> (referer: None)
+2024-01-09 04:04:12 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP> referred in <None>
+2024-01-09 04:04:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP> (referer: None)
+2024-01-09 04:04:12 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP> referred in <None>
+2024-01-09 04:04:12 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP', 'path': 'dlink/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP', 'checksum': 'cc689a03ef67769b0fb753f7049e9cd5', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '07/12/16',
+ 'description': 'Firmware (1.00.12)',
+ 'device_class': 'Full HD Outdoor PoE Mini Dome Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP'],
+ 'files': [{'checksum': 'cc689a03ef67769b0fb753f7049e9cd5',
+            'path': 'dlink/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP'}],
+ 'product': 'DCS-6212L',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.00.12'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:12 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '07/12/16',
+ 'description': 'Firmware (1.00.12)',
+ 'device_class': 'Full HD Outdoor PoE Mini Dome Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP'],
+ 'files': [{'checksum': 'cc689a03ef67769b0fb753f7049e9cd5',
+            'path': 'dlink/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP'}],
+ 'product': 'DCS-6212L',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.00.12.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.00.12'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:12 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP', 'path': 'dlink/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP', 'checksum': '918341899a5b78a6717e63f68aeda8fd', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '01/20/16',
+ 'description': 'Firmware (1.03.00)',
+ 'device_class': 'Full HD Outdoor Dome IP Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP'],
+ 'files': [{'checksum': '918341899a5b78a6717e63f68aeda8fd',
+            'path': 'dlink/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP'}],
+ 'product': 'DCS-6314',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.03.00'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:12 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '01/20/16',
+ 'description': 'Firmware (1.03.00)',
+ 'device_class': 'Full HD Outdoor Dome IP Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP'],
+ 'files': [{'checksum': '918341899a5b78a6717e63f68aeda8fd',
+            'path': 'dlink/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP'}],
+ 'product': 'DCS-6314',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6314/REVA/DCS-6314_REVA_FIRMWARE_1.03.00.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.03.00'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ajax/ajax.ashx?action=productfile&ver=1319> (referer: https://support.dlink.com/ProductInfo.aspx?m=KVM-410)
+2024-01-09 04:04:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ajax/ajax.ashx?action=productfile&ver=1076> (referer: https://support.dlink.com/ProductInfo.aspx?m=DAP-1665)
+2024-01-09 04:04:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ProductInfo.aspx?m=DXS-5000-54S> (referer: https://support.dlink.com/AllPro.aspx)
+2024-01-09 04:04:16 [scrapy.extensions.logstats] INFO: Crawled 17 pages (at 17 pages/min), scraped 0 items (at 0 items/min)
+2024-01-09 04:04:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP> (referer: None)
+2024-01-09 04:04:17 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP> referred in <None>
+2024-01-09 04:04:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ProductInfo.aspx?m=DXS-3610-54T/SI> (referer: https://support.dlink.com/AllPro.aspx)
+2024-01-09 04:04:17 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP', 'path': 'dlink/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP', 'checksum': 'f1db7f162a283f42a466673225f1dfe8', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '10/17/16',
+ 'description': 'Firmware (1.01.02)',
+ 'device_class': 'Full HD Outdoor PoE Mini Dome Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP'],
+ 'files': [{'checksum': 'f1db7f162a283f42a466673225f1dfe8',
+            'path': 'dlink/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP'}],
+ 'product': 'DCS-6212L',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.01.02'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:17 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '10/17/16',
+ 'description': 'Firmware (1.01.02)',
+ 'device_class': 'Full HD Outdoor PoE Mini Dome Camera',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP'],
+ 'files': [{'checksum': 'f1db7f162a283f42a466673225f1dfe8',
+            'path': 'dlink/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP'}],
+ 'product': 'DCS-6212L',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DCS-6212L/REVA/DCS-6212L_REVA_FIRMWARE_1.01.02.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.01.02'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP> (referer: None)
+2024-01-09 04:04:21 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP> referred in <None>
+2024-01-09 04:04:21 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP', 'path': 'dlink/DAP-1665_FIRMWARE_1.00B15.ZIP', 'checksum': 'efbe8afe54100787cc53157d6988d23f', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '02/04/14',
+ 'description': 'Firmware (1.00B15)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP'],
+ 'files': [{'checksum': 'efbe8afe54100787cc53157d6988d23f',
+            'path': 'dlink/DAP-1665_FIRMWARE_1.00B15.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.00B15'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:21 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '02/04/14',
+ 'description': 'Firmware (1.00B15)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP'],
+ 'files': [{'checksum': 'efbe8afe54100787cc53157d6988d23f',
+            'path': 'dlink/DAP-1665_FIRMWARE_1.00B15.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.00B15.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.00B15'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP> (referer: None)
+2024-01-09 04:04:24 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP> referred in <None>
+2024-01-09 04:04:24 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP', 'path': 'dlink/DAP-1665_FIRMWARE_1.10B11.ZIP', 'checksum': 'a3bc15e95e865e08a9d0ad6be62ee87a', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '03/26/14',
+ 'description': 'Firmware (1.10B11)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP'],
+ 'files': [{'checksum': 'a3bc15e95e865e08a9d0ad6be62ee87a',
+            'path': 'dlink/DAP-1665_FIRMWARE_1.10B11.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.10B11'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:24 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '03/26/14',
+ 'description': 'Firmware (1.10B11)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP'],
+ 'files': [{'checksum': 'a3bc15e95e865e08a9d0ad6be62ee87a',
+            'path': 'dlink/DAP-1665_FIRMWARE_1.10B11.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.10B11.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.10B11'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP> (referer: None)
+2024-01-09 04:04:24 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP> referred in <None>
+2024-01-09 04:04:24 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP', 'path': 'dlink/DAP-1665_FIRMWARE_1.11B05.ZIP', 'checksum': '5911643913273c79529890b2a401797e', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '06/02/14',
+ 'description': 'Firmware (1.11B05)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP'],
+ 'files': [{'checksum': '5911643913273c79529890b2a401797e',
+            'path': 'dlink/DAP-1665_FIRMWARE_1.11B05.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.11B05'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:24 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '06/02/14',
+ 'description': 'Firmware (1.11B05)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP'],
+ 'files': [{'checksum': '5911643913273c79529890b2a401797e',
+            'path': 'dlink/DAP-1665_FIRMWARE_1.11B05.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_FIRMWARE_1.11B05.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.11B05'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP> (referer: None)
+2024-01-09 04:04:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP> referred in <None>
+2024-01-09 04:04:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP> (referer: None)
+2024-01-09 04:04:26 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP> referred in <None>
+2024-01-09 04:04:27 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP', 'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP', 'checksum': 'aa8bcd011b992fa13113ef89c5191e7e', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '02/05/15',
+ 'description': 'Firmware (1.13.B05)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP'],
+ 'files': [{'checksum': 'aa8bcd011b992fa13113ef89c5191e7e',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.13.B05'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:27 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '02/05/15',
+ 'description': 'Firmware (1.13.B05)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP'],
+ 'files': [{'checksum': 'aa8bcd011b992fa13113ef89c5191e7e',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://ftp2.dlink.com/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.13.B05.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.13.B05'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:27 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP', 'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP', 'checksum': '59a892c22f3be24dcd6a3e5f34d87914', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '11/17/16',
+ 'description': 'Firmware (1.14.B06)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP'],
+ 'files': [{'checksum': '59a892c22f3be24dcd6a3e5f34d87914',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.14.B06'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:27 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '11/17/16',
+ 'description': 'Firmware (1.14.B06)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP'],
+ 'files': [{'checksum': '59a892c22f3be24dcd6a3e5f34d87914',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.14.B06.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.14.B06'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ajax/ajax.ashx?action=productfile&ver=2025> (referer: https://support.dlink.com/ProductInfo.aspx?m=DXS-3610-54T/SI)
+2024-01-09 04:04:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/ajax/ajax.ashx?action=productfile&ver=1901> (referer: https://support.dlink.com/ProductInfo.aspx?m=DXS-5000-54S)
+2024-01-09 04:04:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DXS-3610-SERIES/REVA/DXS-3610-SERIES_REVA_MIB_v1.01.023.zip> (referer: None)
+2024-01-09 04:04:30 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DXS-3610-SERIES/REVA/DXS-3610-SERIES_REVA_MIB_v1.01.023.zip> referred in <None>
+2024-01-09 04:04:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP> (referer: None)
+2024-01-09 04:04:31 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP> referred in <None>
+2024-01-09 04:04:31 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP', 'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP', 'checksum': '82ef3dbacb215e68c86dbaa9602a4401', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '11/17/16',
+ 'description': 'Firmware (1.16.B01)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP'],
+ 'files': [{'checksum': '82ef3dbacb215e68c86dbaa9602a4401',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.16.B01'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:31 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '11/17/16',
+ 'description': 'Firmware (1.16.B01)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP'],
+ 'files': [{'checksum': '82ef3dbacb215e68c86dbaa9602a4401',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.16.B01.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.16.B01'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP> (referer: None)
+2024-01-09 04:04:32 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP> referred in <None>
+2024-01-09 04:04:32 [firmwarecrawler.firmware.pipelines] WARNING: ===============================================results:[(True, {'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP', 'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP', 'checksum': '67b59373e3458f74e24c5dc4c2eaa57f', 'status': 'downloaded'})], item: {'build': 'A',
+ 'date': '11/17/16',
+ 'description': 'Firmware (1.15.B08)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP'],
+ 'files': [{'checksum': '67b59373e3458f74e24c5dc4c2eaa57f',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.15.B08'}, status:{'mib': {'checksum': None, 'path': None}, 'url': {'checksum': None, 'path': None}, 'sdk': {'checksum': None, 'path': None}}
+2024-01-09 04:04:32 [scrapy.core.scraper] ERROR: Error processing {'build': 'A',
+ 'date': '11/17/16',
+ 'description': 'Firmware (1.15.B08)',
+ 'device_class': 'Wireless AC1200 Dual Band Access Point',
+ 'file_urls': ['https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP'],
+ 'files': [{'checksum': '67b59373e3458f74e24c5dc4c2eaa57f',
+            'path': 'dlink/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP',
+            'status': 'downloaded',
+            'url': 'https://support.dlink.com/resource/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP'}],
+ 'product': 'DAP-1665',
+ 'url': 'ftp://FTP2.DLINK.COM/PRODUCTS/DAP-1665/REVA/DAP-1665_REVA_FIRMWARE_1.15.B08.ZIP',
+ 'vendor': 'dlink',
+ 'version': '1.15.B08'}
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: scraper_firmware
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/twisted/internet/defer.py", line 892, in _runCallbacks
+    current.result = callback(  # type: ignore[misc]
+  File "/home/jackiepark/PycharmProjects/firmware_download/firmwarecrawler/firmware/pipelines.py", line 96, in item_completed
+    if not Firmware.objects.filter(file_path=file_info["path"]).exists():
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/jackiepark/.local/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: scraper_firmware
+2024-01-09 04:04:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://support.dlink.com/resource/PRODUCTS/DXS-5000-SERIES/5000-SERIES_REVA_MIB_v1.00.006.zip> (referer: None)
+2024-01-09 04:04:32 [scrapy.pipelines.files] DEBUG: File (downloaded): Downloaded file from <GET https://support.dlink.com/resource/PRODUCTS/DXS-5000-SERIES/5000-SERIES_REVA_MIB_v1.00.006.zip> referred in <None>
+2024-01-09 04:05:16 [scrapy.extensions.logstats] INFO: Crawled 30 pages (at 13 pages/min), scraped 0 items (at 0 items/min)

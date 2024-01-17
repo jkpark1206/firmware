@@ -7,7 +7,14 @@ from ..loader import FirmwareLoader
 class BuffaloSpider(Spider):
     name = "buffalo"
     allowed_domains = ["buffalotech.com", "cdn.cloudfiles.mosso.com"]
-    start_urls = ["https://www.buffalotech.com/products/category/wireless-networking"]
+    start_urls = [
+        "https://www.buffalotech.com/products/category/wireless-networking",
+        "https://www.buffalotech.com/products/category/network-attached-storage",
+        "https://www.buffalotech.com/products/for-business",
+        "https://www.buffalotech.com/products/category/external-solid-state-drive-ssd",
+        "https://www.buffalotech.com/products/category/external-hard-drives",
+        "https://www.buffalotech.com/products/category/while-supplies-last"
+    ]
 
     def parse(self, response):
         for link in response.xpath('//article/div/a//@href').extract():

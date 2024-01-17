@@ -11,7 +11,7 @@ from ..items import FirmwareImage
 from ..loader import FirmwareLoader
 
 
-class AsusSpider(Spider):
+'''class AsusSpider(Spider):
     name = 'asus'
     manufacturer = 'ASUS'
     device_dictionary = dict(
@@ -127,7 +127,7 @@ class AsusSpider(Spider):
             return 'Motherboard'
         if 'Commercial' in response_url:
             return 'BIOS'
-        return None  # undefined
+        return None  # undefined'''
 
 
 

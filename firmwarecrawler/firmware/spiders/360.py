@@ -9,7 +9,7 @@ from ..loader import FirmwareLoader
 import urllib.request, urllib.parse, urllib.error
 import json
 
-class A360Spider(Spider):
+'''class A360Spider(Spider):
     name = "360"
     #allowed_domains = ["luyou.360.cn"]
     json_url = "http://s7.qhres.com/static/ef5bacdd3d93fa90/common_info.js"
@@ -52,4 +52,4 @@ class A360Spider(Spider):
                 item.add_value("device_class", "Router")
                 item.add_value("date", date)
                 item.add_value("vendor", self.name)
-                yield item.load_item()
+                yield item.load_item()'''
